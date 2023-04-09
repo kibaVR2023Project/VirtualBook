@@ -25,10 +25,6 @@ public class CameraController : MonoBehaviour
             //rotation de la camera selon la souris
             transform.localEulerAngles = new Vector3(transform.localEulerAngles.x + Input.GetAxis("Mouse Y") * Time.deltaTime * rotateSpeed, transform.localEulerAngles.y + Input.GetAxis("Mouse X") * Time.deltaTime * rotateSpeed, 0);
         }
-        if(Input.GetMouseButton(1) || Input.GetMouseButton(2)){
-            //zoomer la caméra vers un endroit prècis 
-            zoomAmount = Mathf.Clamp(zoomAmount + Input.GetAxis("Mouse Y") * Time.deltaTime * zoomSpeed, -10.0f, 7.0f);
-            Camera.main.transform.localPosition = new Vector3(0,0,zoomAmount);
-        }
+        
     }
 }
