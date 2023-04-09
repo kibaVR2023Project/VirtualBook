@@ -5,30 +5,33 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
 
-    //vitesse de roation de la souris
-    private float rotateSpeed = 300.0f;
+    [SerializeField] private Camera cam;
+    [SerializeField] private Transform target;
 
-    //zoom in/out variables
-    public float zoomSpeed = 600.0f;
-    public float zoomAmount = 0.0f;
+    private Vector3 previousPosition;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetMouseButton(0)){
-            //rotation de la camera selon la souris
-            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x + Input.GetAxis("Mouse Y") * Time.deltaTime * rotateSpeed, transform.localEulerAngles.y + Input.GetAxis("Mouse X") * Time.deltaTime * rotateSpeed, 0);
+        if (Input.GetMouseButtonDown(0))
+        {
+            previousPosition = cam.ScreenToViewportPoint(Input.mousePosition);
         }
-        if(Input.GetMouseButton(1) || Input.GetMouseButton(2)){
-            //zoomer la caméra vers un endroit prècis 
-            zoomAmount = Mathf.Clamp(zoomAmount + Input.GetAxis("Mouse Y") * Time.deltaTime * zoomSpeed, -10.0f, 7.0f);
-            Camera.main.transform.localPosition = new Vector3(0,0,zoomAmount);
+        else if (Input.GetMouseButton(0))
+        {
+            Vector3 newPosition = cam.ScreenToViewportPoint(Input.mousePosition);
+            Vector3 direction = previousPosition - newPosition;
+
+            float rotationAroundYAxis = -direction.x * 180; // camera moves horizontally
+            float rotationAroundXAxis = direction.y * 180; // camera moves vertically
+
+            cam.transform.position = target.position;
+            
+            cam.transform.Rotate(new Vector3(1, 0, 0), rotationAroundXAxis);
+            cam.transform.Rotate(new Vector3(0, 1, 0), rotationAroundYAxis, Space.World);
+            
+            cam.transform.Translate(new Vector3(0, 0, -20));
+
+            previousPosition = newPosition;
         }
     }
 }
