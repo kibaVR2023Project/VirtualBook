@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe1e3773ddaa9ce48835846fb8e11c7f, type: 3}
+  m_Name: Math
+  m_EditorClassIdentifier: 
+  _info: "\uFEEA\uFE98\uFEE3\uFE8D\uFEAA\uFE98\uFEB3\uFE8D\uFEED \uFEF2\uFE8C\uFEF4\uFE92\uFEDF\uFE8D
+    \uFEE1\uFE8E\uFEC8\uFEE8\uFEDF\uFE8D \uFEE5\uFEAF\uFE8D\uFEEE\uFE97 \uFEF2\uFED3
+    \uFEF2\uFE9F\uFEEE\uFEDF\uFEEE\uFEF4\uFE92\uFEDF\uFE8D \uFEC9\uFEEE\uFEE8\uFE98\uFEDF\uFE8D
+    \uFEE2\uFEEB\uFE8E\uFEB4\uFEF3"
+  _answers:
+  - _info: X
+    _isCorrect: 0
+  - _info: O
+    _isCorrect: 1
+  _useTimer: 1
+  _timer: 40
+  _answerType: 1
+  _addScore: 30
