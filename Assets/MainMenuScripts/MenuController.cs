@@ -13,6 +13,10 @@ public class MenuController : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 11);
     }
+    public void Game()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 12);
+    }
     public void RetourOcean()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex -11);
